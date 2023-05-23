@@ -11,4 +11,9 @@ class Project extends Model
 
     // slug e immagine così non saranno mai aggiornate
     protected $guarded = ['slug', 'image'];
+
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
+    }
 }

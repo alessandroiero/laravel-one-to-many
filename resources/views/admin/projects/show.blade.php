@@ -10,9 +10,17 @@
             </h2>
         </div>
 
+
         <div>
-            <img src="{{ asset('storage/' . $project->image) }}" alt=" {{ $project->title }}">
-        </div>
+            <h3>Types: {{ $project->types_id}}</h3>
+       </div>
+
+        @if ($project->image)
+             <div>
+                <img src="{{ asset('storage/' . $project->image) }}" alt=" {{ $project->title }}">
+            </div>
+        @endif
+
         <div class="content">
             <p>{{$project->content}}</p>
         </div>

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h2>Crea post</h2>
+    <h2>Crea Project</h2>
     
     {{-- validazione errori --}}
     @if ($errors->any())

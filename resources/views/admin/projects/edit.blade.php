@@ -39,8 +39,17 @@
           <label for="image" class="form-label py-4">IMG</label>
           <input class="form-control" type="file" id="image" name="image">
         </div>
-        {{-- /immagini --}}
-
+        {{-- /immagini --}}      
+        {{-- tipologia --}}
+        <div class="mb-3">
+          <label for="types_id" class="form-label">Types</label>
+          <select class="form-select" name="types_id" id="types_id">
+              <option value="">Select Types</option>
+              @foreach ($types as $type)
+                  <option value="{{ $type->id }}" {{ old('types_id') == $type->id ? 'selected' : '' }}>{{ $type->name }}</option>
+              @endforeach
+          </select>
+        </div>
         <button type="submit" class="btn btn-primary">Edit</button>
       </form>
 
