@@ -47,16 +47,17 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
         $project = new Project();
-        $project->slug =  Str::slug($data['title']);
         $project->fill($data);
 
         // immagine
-        $project->slug =  Str::slug($data['title']);
         if (isset($data['image'])) {
-            $project->image = Storage::put('uploads', $data['image']);
+            $project->image = Storage::put('uploads', $data['image']); // storage/public/nomefile.jpg
         }
+        $project->slug =  Str::slug($data['title']);
         // immagine
         $project->save();
+
+        
 
         return redirect()->route('admin.projects.index')->with('message', 'Nuovo Progetto Creato');
     }
@@ -68,7 +69,7 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Project $project)
-    {
+    {   
         return view('admin.projects.show', compact('project'));
     }
 
@@ -81,7 +82,7 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $types = Type::all();
-        return view('admin.projects.edit', compact('project', 'types'));
+        return view('admin.projects.edit', compact('project','types'));
     }
 
     /**

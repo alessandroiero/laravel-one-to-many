@@ -1,12 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Type;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTypeRequest;
 use App\Http\Requests\UpdateTypeRequest;
-use App\Http\Controllers\Controller;
-
+use App\Models\Type;
 class TypeController extends Controller
 {
     /**
@@ -62,6 +60,7 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
+
 
     }
 
